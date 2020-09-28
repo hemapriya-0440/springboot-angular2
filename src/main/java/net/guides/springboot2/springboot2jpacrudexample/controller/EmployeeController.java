@@ -59,8 +59,32 @@ public class EmployeeController {
 	  
 	  employee.setMailId(employeeDetails.getMailId());
 	  employee.setLastName(employeeDetails.getLastName());
-	  employee.setFirstName(employeeDetails.getFirstName()); final Employee
-	  updatedEmployee = employeeRepository.save(employee); return
+	  employee.setFirstName(employeeDetails.getFirstName());
+	  employee.setaLine1(employeeDetails.getaLine1());
+	  employee.setaLine2(employeeDetails.getaLine2());
+	  employee.setCity(employeeDetails.getCity());
+	  employee.setCountry(employeeDetails.getCountry());
+	  employee.setDesReq(employeeDetails.getDesReq());
+	  employee.setDoB(employeeDetails.getDoB());
+	  employee.setEmpId(employeeDetails.getEmpId());
+	  employee.setSeatTag(employeeDetails.getSeatTag());
+	  employee.setExp(employeeDetails.getExp());
+	  employee.setL1Cert(employeeDetails.getL1Cert());
+	  employee.setL2Cert(employeeDetails.getL2Cert());
+	  employee.setMobileNo(employeeDetails.getMobileNo());
+	  employee.setOdcAccReq(employeeDetails.getOdcAccReq());
+	  employee.setPinCode(employeeDetails.getPinCode());
+	  employee.setPrimSkill(employeeDetails.getPrimSkill());
+	  employee.setProjectId(employeeDetails.getProjectId());
+	  employee.setProjectName(employeeDetails.getProjectName());
+	  employee.setProjRole(employeeDetails.getProjRole());
+	  employee.setRepManager(employeeDetails.getRepManager());
+	  employee.setSecSkill(employeeDetails.getSecSkill());
+	  employee.setState(employeeDetails.getState());
+	  employee.setWorkLoc(employeeDetails.getWorkLoc());
+	  final Employee
+	  updatedEmployee = employeeRepository.save(employee);
+	  return
 	  ResponseEntity.ok(updatedEmployee); }
 	 
 

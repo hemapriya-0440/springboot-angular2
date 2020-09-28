@@ -1,5 +1,7 @@
 package net.guides.springboot2.springboot2jpacrudexample.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,6 +11,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "employees_registration")
@@ -36,10 +41,8 @@ public class Employee {
 	@NotBlank
 	public String mobileNo;		 	
  	@Column(name = "date_of_Birth", nullable = false)
-	@NotEmpty(message="choose any one option")
- 	@NotNull
-	@NotBlank
-	public String doB;
+    @JsonFormat(pattern="yyyy-MM-dd")
+	public Date doB;
  	@Column(name = "project_Id", nullable = false)
  	@NotNull
 	@NotBlank
@@ -130,7 +133,7 @@ public class Employee {
 		public Employee(long empId, @NotEmpty(message = "should not be empty") @NotNull @NotBlank String firstName,
 		@NotEmpty(message = "should not be empty") @NotNull @NotBlank String lastName,
 		@NotEmpty(message = "should not be empty") @NotNull @NotBlank String mailId, @NotNull @NotBlank String mobileNo,
-		@NotEmpty(message = "choose any one option") @NotNull @NotBlank String doB, @NotNull @NotBlank String projectId,
+		@NotEmpty(message = "choose any one option") @NotNull @NotBlank @NotEmpty(message = "choose any one option") @NotNull @NotBlank Date doB, @NotNull @NotBlank String projectId,
 		@NotNull @NotBlank @NotEmpty(message = "should not be empty") String projectName,
 		@NotEmpty(message = "should not be empty") @NotNull @NotBlank String repManager,
 		@NotEmpty(message = "should not be empty") @NotNull @NotBlank String projRole, @NotNull @Range(min = 1) int exp,
@@ -222,12 +225,12 @@ public class Employee {
 		}
 
 
-		public String getDoB() {
+		public Date getDoB() {
 			return doB;
 		}
 
 
-		public void setDoB(String doB) {
+		public void setDoB(@NotEmpty(message = "choose any one option") @NotNull @NotBlank Date doB) {
 			this.doB = doB;
 		}
 
